@@ -1,5 +1,7 @@
 package com.voyager.dao;
 
+import java.util.Map;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -13,7 +15,7 @@ public class UserDao {
 
 	public static boolean login(JFrame frame, String userName, String userPwd) {
 		UserBean user = new UserBean(userName, userPwd);
-		Result result = new NetHelper().post(user);
+		Result result = new NetHelper().post(user, "l");
 		if (result.getResponseCode().equals(Constant.RESPONSE_OK)) {
 			System.out.println("UserDao£º£ºµÇÂ¼³É¹¦£¡");
 			frame.dispose();
@@ -26,6 +28,14 @@ public class UserDao {
 			return false;
 		}
 
+	}
+
+	public static boolean register(UserBean user) {
+		Result result = new NetHelper().post(user, "r");
+		if ("1".equals(result.getResponseCode())) {
+			return true;
+		}
+		return false;
 	}
 
 }

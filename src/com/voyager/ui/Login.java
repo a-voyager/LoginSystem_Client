@@ -110,6 +110,7 @@ public class Login {
 		btn_register.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
 		btn_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Register.main(null);
 			}
 		});
 		btn_register.setBounds(268, 134, 93, 23);

@@ -28,12 +28,18 @@ public class NetHelper {
 	private static final String ENCODING = "UTF-8";
 
 	@SuppressWarnings("finally")
-	public Result post(UserBean user) {
+	public Result post(UserBean user, String flag) {
 		Result result = new Result();
 		// 创建HttpClient实例对象
 		CloseableHttpClient httpclient = HttpClients.createDefault();
+		HttpPost httppost = null;
 		// 创建Post请求
-		HttpPost httppost = new HttpPost(Constant.SERVER_ADDR);
+		if ("l".equals(flag)) {
+			httppost = new HttpPost(Constant.SERVER_ADDR_LOGIN);
+		} else if ("r".equals(flag)) {
+			httppost = new HttpPost(Constant.SERVER_ADDR_REGISTER);
+		}
+		// HttpPost httppost = new HttpPost(addr);
 		// 创建参数列表
 		List<BasicNameValuePair> formparams = new ArrayList<BasicNameValuePair>();
 		// 遍历属性列表添加属性
