@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 
+import com.voyager.dao.UserDao;
 import com.voyager.utils.UIs;
 import com.voyager.utils.Utils;
 
@@ -34,6 +35,7 @@ public class Login {
 				}
 			}
 		});
+
 	}
 
 	/**
@@ -97,6 +99,8 @@ public class Login {
 			et_userPwd.setText("");
 			JOptionPane.showMessageDialog(frame, "您输入的用户名或密码不合法！请重试", "提示",
 					JOptionPane.WARNING_MESSAGE);
+			return;
 		}
+		UserDao.login(frame, userName, userPwd);
 	}
 }
