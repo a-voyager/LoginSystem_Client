@@ -8,7 +8,7 @@ public class Utils {
 	 * @return
 	 */
 	public static boolean isUserNameQualifiedRule(String name) {
-		if (name.isEmpty())
+		if (name.trim().isEmpty())
 			return false;
 		return true;
 	}
@@ -20,7 +20,7 @@ public class Utils {
 	 * @return
 	 */
 	public static boolean isUserPwdQualifiedRule(String pwd) {
-		if (pwd.isEmpty())
+		if (pwd.trim().isEmpty())
 			return false;
 		return true;
 	}
