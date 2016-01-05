@@ -11,17 +11,19 @@ import com.voyager.ui.UserCenter;
 
 public class UserDao {
 
-	public static void login(JFrame frame, String userName, String userPwd) {
+	public static boolean login(JFrame frame, String userName, String userPwd) {
 		UserBean user = new UserBean(userName, userPwd);
 		Result result = new NetHelper().post(user);
 		if (result.getResponseCode().equals(Constant.RESPONSE_OK)) {
 			System.out.println("UserDao£º£ºµÇÂ¼³É¹¦£¡");
 			frame.dispose();
 			UserCenter.main(null);
+			return true;
 		} else {
 			System.out.println("UserDao£º£ºµÇÂ¼Ê§°Ü£¡");
 			JOptionPane.showMessageDialog(frame, "¶Ô²»Æð£¬µÇÂ¼Ê§°Ü£¡", "ÌáÊ¾",
 					JOptionPane.WARNING_MESSAGE);
+			return false;
 		}
 
 	}
