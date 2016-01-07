@@ -19,7 +19,7 @@ public class UserDao {
 		if (result.getResponseCode().equals(Constant.RESPONSE_OK)) {
 			System.out.println("UserDao£º£ºµÇÂ¼³É¹¦£¡");
 			frame.dispose();
-			UserCenter.main(null);
+			UserCenter.main(new String[] { userName, userPwd });
 			return true;
 		} else {
 			System.out.println("UserDao£º£ºµÇÂ¼Ê§°Ü£¡");
