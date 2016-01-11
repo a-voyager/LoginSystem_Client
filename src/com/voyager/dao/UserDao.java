@@ -38,4 +38,10 @@ public class UserDao {
 		return false;
 	}
 
+	public static boolean logout() {
+		// 注销暂未实现判断返回码
+		new NetHelper().post(null, "o");
+		return true;
+	}
+
 }

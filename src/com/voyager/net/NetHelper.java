@@ -38,21 +38,25 @@ public class NetHelper {
 			httppost = new HttpPost(Constant.SERVER_ADDR_LOGIN);
 		} else if ("r".equals(flag)) {
 			httppost = new HttpPost(Constant.SERVER_ADDR_REGISTER);
+		} else if ("o".equals(flag)) {
+			httppost = new HttpPost(Constant.SERVER_ADDR_LOGOUT);
 		}
 		// HttpPost httppost = new HttpPost(addr);
 		// 创建参数列表
 		List<BasicNameValuePair> formparams = new ArrayList<BasicNameValuePair>();
 		// 遍历属性列表添加属性
-		Map<String, String> infoList = user.getInfoList();
-		Set<Entry<String, String>> entrySet = infoList.entrySet();
-		for (Entry<String, String> e : entrySet) {
-			formparams.add(new BasicNameValuePair(e.getKey(), e.getValue()));
+		if (user != null) {
+			Map<String, String> infoList = user.getInfoList();
+			Set<Entry<String, String>> entrySet = infoList.entrySet();
+			for (Entry<String, String> e : entrySet) {
+				formparams
+						.add(new BasicNameValuePair(e.getKey(), e.getValue()));
+			}
 		}
-
 		UrlEncodedFormEntity uefEntity;
 		try {
 			uefEntity = new UrlEncodedFormEntity(formparams, ENCODING);
-			// 设置廉洁配置
+			// 设置连接配置
 			httppost.setEntity(uefEntity);
 			System.out.println("executing request " + httppost.getURI());
 			// 执行连接操作

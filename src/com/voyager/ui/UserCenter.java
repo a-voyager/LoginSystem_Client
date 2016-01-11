@@ -4,8 +4,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
 import java.awt.BorderLayout;
+
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+
+import com.voyager.dao.UserDao;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * @author wuhaojie
@@ -65,5 +73,17 @@ public class UserCenter {
 		textField.setBounds(10, 10, 414, 160);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+
+		JButton btn_logout = new JButton("\u6CE8\u9500");
+		btn_logout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if (UserDao.logout()) {
+					frame.dispose();
+					Login.main(null);
+				}
+			}
+		});
+		btn_logout.setBounds(173, 180, 93, 23);
+		frame.getContentPane().add(btn_logout);
 	}
 }
