@@ -123,6 +123,7 @@ public class Register {
 					JOptionPane.WARNING_MESSAGE);
 			return false;
 		}
+		Login.main(null);
 		return true;
 
 	}

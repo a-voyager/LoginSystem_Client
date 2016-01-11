@@ -96,8 +96,11 @@ public class Login {
 						.println("UserDao.login(frame, userName, userPwd) :: "
 								+ login);
 				ConfigUtils.addConfig("userName", userName);
-				if (cb_savePwd.isSelected() && login) {
-					ConfigUtils.addConfig("savePwd", "true");
+				if (login) {
+					if (cb_savePwd.isSelected())
+						ConfigUtils.addConfig("savePwd", "true");
+					else
+						ConfigUtils.addConfig("savePwd", "false");
 					ConfigUtils.addConfig("userPwd", userPwd);
 				}
 			}
@@ -110,6 +113,7 @@ public class Login {
 		btn_register.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
 		btn_register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				closeWindow();
 				Register.main(null);
 			}
 		});
@@ -118,6 +122,11 @@ public class Login {
 
 		loadConfig();
 
+	}
+
+	protected void closeWindow() {
+		// TODO Auto-generated method stub
+		frame.dispose();
 	}
 
 	/**
