@@ -19,6 +19,11 @@ import java.awt.Font;
 import java.util.Properties;
 
 import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Login {
 
@@ -27,7 +32,9 @@ public class Login {
 	private String userName;
 	private String userPwd;
 	private JCheckBox cb_savePwd;
-	private JTextArea et_userName;
+	private JTextField et_userName;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -68,21 +75,22 @@ public class Login {
 	private void initialize() {
 		UIs.setUI();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setTitle("\u6B22\u8FCE");
+		frame.setBounds(100, 100, 450, 242);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		et_userName = new JTextArea();
+		et_userName = new JTextField();
 		et_userName.setToolTipText("");
-		et_userName.setBounds(10, 25, 202, 48);
+		et_userName.setBounds(89, 42, 202, 32);
 		frame.getContentPane().add(et_userName);
 
 		cb_savePwd = new JCheckBox("\u8BB0\u4F4F\u5BC6\u7801");
-		cb_savePwd.setBounds(268, 91, 103, 23);
+		cb_savePwd.setBounds(321, 89, 103, 23);
 		frame.getContentPane().add(cb_savePwd);
 
 		et_userPwd = new JPasswordField();
-		et_userPwd.setBounds(10, 116, 202, 59);
+		et_userPwd.setBounds(89, 126, 202, 32);
 		frame.getContentPane().add(et_userPwd);
 
 		JButton btn_login = new JButton("\u767B\u5F55");
@@ -106,7 +114,7 @@ public class Login {
 			}
 
 		});
-		btn_login.setBounds(268, 50, 93, 23);
+		btn_login.setBounds(320, 42, 93, 23);
 		frame.getContentPane().add(btn_login);
 
 		JButton btn_register = new JButton("\u6CE8\u518C");
@@ -117,8 +125,34 @@ public class Login {
 				Register.main(null);
 			}
 		});
-		btn_register.setBounds(268, 134, 93, 23);
+		btn_register.setBounds(320, 130, 93, 23);
 		frame.getContentPane().add(btn_register);
+
+		textField = new JTextField();
+		textField.setText("\u7528\u6237\u540D");
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
+		textField.setFocusable(false);
+		textField.setFocusTraversalKeysEnabled(false);
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBorder(null);
+		textField.setBackground(new Color(214, 217, 223));
+		textField.setBounds(10, 47, 66, 21);
+		frame.getContentPane().add(textField);
+
+		textField_1 = new JTextField();
+		textField_1.setText("\u5BC6\u7801");
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setFont(new Font("Î¢ÈíÑÅºÚ", Font.PLAIN, 12));
+		textField_1.setFocusable(false);
+		textField_1.setFocusTraversalKeysEnabled(false);
+		textField_1.setEditable(false);
+		textField_1.setColumns(10);
+		textField_1.setBorder(null);
+		textField_1.setBackground(new Color(214, 217, 223));
+		textField_1.setBounds(10, 135, 66, 21);
+		frame.getContentPane().add(textField_1);
 
 		loadConfig();
 
@@ -134,7 +168,7 @@ public class Login {
 	 * 
 	 * @param et_userName
 	 */
-	private boolean getText(JTextArea et_userName) {
+	private boolean getText(JTextField et_userName) {
 		userName = et_userName.getText();
 		char[] password = et_userPwd.getPassword();
 		userPwd = new String(password);
