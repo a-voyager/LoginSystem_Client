@@ -8,6 +8,11 @@ import java.util.Properties;
 
 import com.voyager.constant.Constant;
 
+/**
+ * 配置文件读取操作类
+ * @author wuhaojie
+ *
+ */
 public class ConfigUtils {
 	private static Properties properties = new Properties();
 	private static FileOutputStream outputStream;
@@ -25,10 +30,21 @@ public class ConfigUtils {
 		}
 	}
 
+	/**
+	 * 获取配置信息
+	 * @param key
+	 * @return value
+	 */
 	public static String getConfig(String key) {
 		return properties.getProperty(key);
 	}
 
+	/**
+	 * 添加配置信息
+	 * @param key
+	 * @param value
+	 * @return 操作是否成功
+	 */
 	public static boolean addConfig(String key, String value) {
 		properties.setProperty(key, value);
 		try {
@@ -39,7 +55,5 @@ public class ConfigUtils {
 		return true;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getConfig("123"));
-	}
+	
 }

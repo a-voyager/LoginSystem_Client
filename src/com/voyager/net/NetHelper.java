@@ -23,10 +23,28 @@ import com.voyager.constant.Constant;
 import com.voyager.engin.Result;
 import com.voyager.engin.UserBean;
 
+/**
+ * 网络操作管理类
+ * 
+ * @author wuhaojie
+ *
+ */
 public class NetHelper {
 
+	/**
+	 * 通信编码方式
+	 */
 	private static final String ENCODING = "UTF-8";
 
+	/**
+	 * 发送POST请求
+	 * 
+	 * @param user
+	 *            用户对象
+	 * @param flag
+	 *            标志 "l"登录 "r"注册 "o"注销
+	 * @return
+	 */
 	@SuppressWarnings("finally")
 	public Result post(UserBean user, String flag) {
 		Result result = new Result();
@@ -79,6 +97,13 @@ public class NetHelper {
 		}
 	}
 
+	/**
+	 * 分析处理返回结果
+	 * 
+	 * @param result
+	 * @param response
+	 * @throws IOException
+	 */
 	private void getResponse(Result result, CloseableHttpResponse response)
 			throws IOException {
 		try {

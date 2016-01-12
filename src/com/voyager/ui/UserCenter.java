@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
+ * 用户中心界面
+ * 
  * @author wuhaojie
  *
  */

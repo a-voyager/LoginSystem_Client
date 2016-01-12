@@ -27,6 +27,12 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.SystemColor;
 
+/**
+ * ×¢²á½çÃæ
+ * 
+ * @author wuhaojie
+ *
+ */
 public class Register {
 
 	private static final String COLOR = "#D6D9DF";
@@ -122,7 +128,7 @@ public class Register {
 		textField.setBounds(30, 80, 66, 21);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setText("\u5BC6\u7801");
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -135,7 +141,7 @@ public class Register {
 		textField_1.setBackground(new Color(214, 217, 223));
 		textField_1.setBounds(30, 133, 66, 21);
 		frame.getContentPane().add(textField_1);
-		
+
 		textField_2 = new JTextField();
 		textField_2.setText("\u786E\u8BA4\u5BC6\u7801");
 		textField_2.setHorizontalAlignment(SwingConstants.CENTER);

@@ -3,8 +3,20 @@ package com.voyager.engin;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 用户封装对象
+ * 
+ * @author wuhaojie
+ *
+ */
 public class UserBean {
+	/**
+	 * 用户名
+	 */
 	private String userName;
+	/**
+	 * 密码
+	 */
 	private String userPwd;
 
 	public UserBean(String userName, String userPwd) {

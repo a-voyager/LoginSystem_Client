@@ -25,6 +25,12 @@ import javax.swing.SwingConstants;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+/**
+ * µÇÂ¼½çÃæ
+ * 
+ * @author wuhaojie
+ *
+ */
 public class Login {
 
 	private JFrame frame;

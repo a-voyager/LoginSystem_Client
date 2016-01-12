@@ -1,5 +1,11 @@
 package com.voyager.utils;
 
+/**
+ * 工具类
+ * 
+ * @author wuhaojie
+ *
+ */
 public class Utils {
 	/**
 	 * 判断用户名是否合法
