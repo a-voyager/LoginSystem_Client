@@ -24,6 +24,8 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * 登录界面
@@ -41,6 +43,7 @@ public class Login {
 	private JTextField et_userName;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField txtDesignedByWuhaojie;
 
 	/**
 	 * Launch the application.
@@ -159,6 +162,28 @@ public class Login {
 		textField_1.setBackground(new Color(214, 217, 223));
 		textField_1.setBounds(10, 135, 66, 21);
 		frame.getContentPane().add(textField_1);
+
+		String text = "    Copyright (c) 2015 WuHaojie (吴豪杰)\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.";
+		txtDesignedByWuhaojie = new JTextField();
+		txtDesignedByWuhaojie.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JOptionPane.showMessageDialog(frame, text, "License",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		txtDesignedByWuhaojie.setForeground(Color.DARK_GRAY);
+		txtDesignedByWuhaojie.setText("Designed by WuHaojie");
+		txtDesignedByWuhaojie.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDesignedByWuhaojie.setFont(new Font("Senty小丸子", Font.PLAIN, 16));
+		txtDesignedByWuhaojie.setFocusable(false);
+		txtDesignedByWuhaojie.setFocusTraversalKeysEnabled(false);
+		txtDesignedByWuhaojie.setEditable(false);
+		txtDesignedByWuhaojie.setColumns(10);
+		txtDesignedByWuhaojie.setBorder(null);
+		txtDesignedByWuhaojie.setBackground(new Color(214, 217, 223));
+		txtDesignedByWuhaojie.setBounds(303, 183, 131, 21);
+		frame.getContentPane().add(txtDesignedByWuhaojie);
 
 		loadConfig();
 
